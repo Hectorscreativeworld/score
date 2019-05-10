@@ -1,27 +1,20 @@
 let teamOneScore = 0
 let teamTwoScore = 0
-let timeRemaining = 60 // in seconds
 
-// timer //
-
-let interval
-const startCountdown = () => {
-  clearInterval(interval)
-  interval = setInterval(() => {
-    interval = timeRemaining -= 1
-    updateClock()
-    console.log(timeRemaining)
-    if (timeRemaining === 0) {
-      clearInterval(interval)
-    }
-  }, 1000)
+const disableButtons = () => {
+  let buttons = document.querySelectorAll('.game-btn')
+  buttons.forEach(function (btn) {
+    btn.setAttribute('disabled', 'true')
+  })
+  document.querySelector('.restart').style.display = 'block'
 }
 
-const updateClock = () => {
-  const mins = Math.floor(timeRemaining / 60)
-  const secs = timeRemaining - mins * 60
-  console.log(mins, secs)
-  document.querySelector('.clock-display').textContent = 0 + ':' + secs
+const enableButtons = () => {
+  let buttons = document.querySelectorAll('.game-btn')
+  buttons.forEach(function (btn) {
+    btn.removeAttribute('disabled')
+  })
+  document.querySelector('.restart').style.display = 'none'
 }
 
 // Add
@@ -86,7 +79,7 @@ const updateTeamTwo = () => {
   updateTeam('two')
 }
 
-const updateTeam = number => {
+const updateTeamOne = number() => {
   let teamInput = document.querySelector('.update-team-' + number + '-input')
   let teamName = teamInput.value
   if (teamName !== '') {
@@ -96,9 +89,6 @@ const updateTeam = number => {
 }
 
 const main = () => {
-  updateClock()
-  startCountdown()
-
   document
     .querySelector('.team-1-add-1-button')
     .addEventListener('click', addTeamOne)

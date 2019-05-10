@@ -1,5 +1,5 @@
-:root {
-  font: 16px / 1 sans-serif;
+/* :root {
+  font: 16px / 1 sans-serif; */
 }
 
 html {
@@ -9,11 +9,57 @@ html {
 body {
   margin: 0;
   min-height: 100%;
+  font-family: 'Mako', sans-serif;
+  background-color: blue;
+
 }
+
+.main-container {}
+
 
 h1 {
   text-align: center;
+  font-family: 'Bowlby One SC', cursive;
+  color: white;
+
 }
+
+.my-score-board {}
+
+.time {
+  text-align: center;
+  font-size: 2rem;
+}
+
+h2 {
+  font-family: 'Mako', sans-serif;
+}
+
+h3 {
+  text-align: center;
+  font-size: 2rem
+}
+
+.team1 {
+  color: #0c084c;
+  text-align: center;
+}
+
+.team1Score {
+  text-align: center;
+
+}
+
+.team2 {
+  color: #0c084c;
+  text-align: center;
+}
+
+.team2Score {
+  text-align: center;
+
+}
+
 
 .score-area {
   display: flex;
@@ -27,13 +73,24 @@ h1 {
 .update-score {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
 }
 
 .update-score .team-name {
-  display: flex;
-  flex-direction: row;
+  /* display: flex;
+  flex-direction: row; */
 }
 
 .update-score section {
   margin: 1rem;
+}
+
+p.message {
+  font-size: 45px;
+  color: #5e0a0a;
+}
+
+.restart {
+  display: none;
+  margin: auto;
 }
